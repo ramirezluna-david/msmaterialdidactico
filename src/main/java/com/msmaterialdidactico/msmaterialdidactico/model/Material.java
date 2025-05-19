@@ -28,7 +28,7 @@ public class Material {
     @Column(nullable = false)
     private int idClase;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 1000, nullable = false)
     private String descripcion;
 
     @Column(length = 50, nullable = false)
