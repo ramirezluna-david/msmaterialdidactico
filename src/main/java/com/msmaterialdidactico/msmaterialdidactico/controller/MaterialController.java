@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,5 +50,35 @@ public class MaterialController {
         }
     }
 
+    @PutMapping("/{idMaterial}")
+    public ResponseEntity<Material> updateMaterial(@PathVariable int idMaterial, @RequestBody Material material) {
+        try {
+            Material mat = materialService.findById(idMaterial);
+            mat.setIdMaterial(idMaterial);
+            mat.setIdClase(material.getIdClase());
+            mat.setDescripcion(material.getDescripcion());
+            mat.setTipoMaterial(material.getTipoMaterial());
+            mat.setUrl(material.getUrl());
+            mat.setFechaSubida(material.getFechaSubida());
+            mat.setNombreArchivo(material.getNombreArchivo());
+            mat.setTipoArchivo(material.getTipoArchivo());
+            mat.setPublicado(material.getPublicado());
+
+            materialService.save(mat);
+            return new ResponseEntity<>(material, HttpStatus.OK);
+        } catch(Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{idMaterial}")
+    public ResponseEntity<?> deleteMaterial(@PathVariable int idMaterial) {
+        try {
+            materialService.deleteById(idMaterial);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch(Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }
