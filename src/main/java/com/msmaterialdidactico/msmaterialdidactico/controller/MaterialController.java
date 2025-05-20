@@ -47,18 +47,18 @@ public class MaterialController {
 
     @GetMapping("/{idMaterial}")
     public ResponseEntity<Material> readMaterial(@PathVariable int idMaterial) {
-        try {
-            Material material = materialService.findById(idMaterial);
-            return new ResponseEntity<>(material, HttpStatus.OK);
-        } catch(Exception e) {
+        Material buscarMaterial = materialService.findById(idMaterial);
+        if(buscarMaterial != null) {
+            return new ResponseEntity<>(buscarMaterial, HttpStatus.OK);
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PutMapping("/{idMaterial}")
     public ResponseEntity<Material> updateMaterial(@PathVariable int idMaterial, @RequestBody Material material) {
-        try {
-            Material mat = materialService.findById(idMaterial);
+        Material mat = materialService.findById(idMaterial);
+        if(mat != null) {
             mat.setIdMaterial(idMaterial);
             mat.setIdClase(material.getIdClase());
             mat.setDescripcion(material.getDescripcion());
@@ -71,19 +71,19 @@ public class MaterialController {
 
             materialService.save(mat);
             return new ResponseEntity<>(material, HttpStatus.OK);
-        } catch(Exception e) {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping("/{idMaterial}")
     public ResponseEntity<?> deleteMaterial(@PathVariable int idMaterial) {
-        try {
+        Material buscar = materialService.findById(idMaterial);
+        if(buscar != null) {
             materialService.deleteById(idMaterial);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch(Exception e) {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
 }
