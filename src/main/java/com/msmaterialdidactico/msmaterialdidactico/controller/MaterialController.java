@@ -36,8 +36,13 @@ public class MaterialController {
 
     @PostMapping
     public ResponseEntity<Material> createMaterial(@RequestBody Material material) {
-        Material nuevoMaterial = materialService.save(material);
-        return new ResponseEntity<>(nuevoMaterial, HttpStatus.ACCEPTED);
+        Material buscar = materialService.findById(material.getIdMaterial());
+        if(buscar == null) {
+            Material nuevoMaterial = materialService.save(material);
+            return new ResponseEntity<>(nuevoMaterial, HttpStatus.ACCEPTED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 
     @GetMapping("/{idMaterial}")
