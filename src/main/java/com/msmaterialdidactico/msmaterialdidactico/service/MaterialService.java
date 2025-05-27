@@ -29,4 +29,15 @@ public class MaterialService {
     public void deleteById(int idMaterial) {
         materialRepository.deleteById(idMaterial);
     }
+
+    public Boolean cambiarVisibilidad(int idMaterial) {
+        Material buscarMaterial = materialRepository.findById(idMaterial);
+        if(buscarMaterial != null) {
+            buscarMaterial.setPublicado((!buscarMaterial.getPublicado()));
+            materialRepository.save(buscarMaterial);
+            return true;
+        }
+
+        return false;
+    }
 }
