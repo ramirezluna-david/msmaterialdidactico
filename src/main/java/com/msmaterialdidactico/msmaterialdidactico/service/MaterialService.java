@@ -3,6 +3,8 @@ package com.msmaterialdidactico.msmaterialdidactico.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.msmaterialdidactico.msmaterialdidactico.model.Material;
@@ -39,5 +41,25 @@ public class MaterialService {
         }
 
         return false;
+    }
+
+    public Boolean update(int idMaterial, Material material) {
+        Material mat = materialRepository.findById(idMaterial);
+        if(mat != null) {
+            mat.setIdMaterial(idMaterial);
+            mat.setIdClase(material.getIdClase());
+            mat.setDescripcion(material.getDescripcion());
+            mat.setTipoMaterial(material.getTipoMaterial());
+            mat.setUrl(material.getUrl());
+            mat.setFechaSubida(material.getFechaSubida());
+            mat.setNombreArchivo(material.getNombreArchivo());
+            mat.setTipoArchivo(material.getTipoArchivo());
+            mat.setPublicado(material.getPublicado());
+
+            materialRepository.save(mat);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

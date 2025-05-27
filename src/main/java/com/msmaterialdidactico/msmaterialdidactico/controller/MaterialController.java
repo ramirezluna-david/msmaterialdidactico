@@ -58,19 +58,7 @@ public class MaterialController {
 
     @PutMapping("/{idMaterial}")
     public ResponseEntity<Material> updateMaterial(@PathVariable int idMaterial, @RequestBody Material material) {
-        Material mat = materialService.findById(idMaterial);
-        if(mat != null) {
-            mat.setIdMaterial(idMaterial);
-            mat.setIdClase(material.getIdClase());
-            mat.setDescripcion(material.getDescripcion());
-            mat.setTipoMaterial(material.getTipoMaterial());
-            mat.setUrl(material.getUrl());
-            mat.setFechaSubida(material.getFechaSubida());
-            mat.setNombreArchivo(material.getNombreArchivo());
-            mat.setTipoArchivo(material.getTipoArchivo());
-            mat.setPublicado(material.getPublicado());
-
-            materialService.save(mat);
+        if(materialService.update(idMaterial, material)) {
             return new ResponseEntity<>(material, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
