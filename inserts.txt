@@ -1,0 +1,11 @@
+INSERT INTO material (id_clase, descripcion, tipo_material, url, fecha_subida, nombre_archivo, tipo_archivo, publicado) VALUES
+(1, 'Documento PDF con introducción a variables en Java.', 'Documento', 'https://example.com/materials/variables_intro.pdf', '2024-01-11', 'variables_intro.pdf', 'pdf', TRUE),
+(2, 'Video explicativo sobre clases y objetos.', 'Video', 'https://example.com/materials/clases_objetos.mp4', '2024-01-16', 'clases_objetos.mp4', 'mp4', TRUE),
+(3, 'Diagrama ER para diseño de bases de datos.', 'Imagen', 'https://example.com/materials/diagrama_er.png', '2024-02-06', 'diagrama_er.png', 'png', TRUE),
+(4, 'Archivo SQL con consultas SELECT de ejemplo.', 'Código', 'https://example.com/materials/consultas_select.sql', '2024-02-11', 'consultas_select.sql', 'sql', TRUE),
+(5, 'Tutorial básico de estructura HTML.', 'Documento', 'https://example.com/materials/html_tutorial.pdf', '2024-03-02', 'html_tutorial.pdf', 'pdf', TRUE),
+(6, 'Video sobre estilos CSS.', 'Video', 'https://example.com/materials/css_estilos.mp4', '2024-03-06', 'css_estilos.mp4', 'mp4', TRUE),
+(7, 'Guía rápida para configurar Spring.', 'Documento', 'https://example.com/materials/config_spring.pdf', '2024-04-11', 'config_spring.pdf', 'pdf', FALSE),
+(8, 'Ejemplo de archivo pom.xml para Maven.', 'Código', 'https://example.com/materials/pom.xml', '2024-04-16', 'pom.xml', 'xml', FALSE),
+(9, 'Presentación sobre fundamentos de seguridad.', 'Documento', 'https://example.com/materials/seguridad_fundamentos.pptx', '2024-05-02', 'seguridad_fundamentos.pptx', 'pptx', TRUE),
+(10, 'Código ejemplo de autenticación OAuth2.', 'Código', 'https://example.com/materials/oauth2_auth.java', '2024-05-11', 'oauth2_auth.java', 'java', TRUE);
