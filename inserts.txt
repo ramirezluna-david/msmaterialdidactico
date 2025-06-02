@@ -1,11 +1,35 @@
-INSERT INTO material (id_clase, descripcion, tipo_material, url, fecha_subida, nombre_archivo, tipo_archivo, publicado) VALUES
-(1, 'Documento PDF con introducción a variables en Java.', 'Documento', 'https://example.com/materials/variables_intro.pdf', '2024-01-11', 'variables_intro.pdf', 'pdf', TRUE),
-(2, 'Video explicativo sobre clases y objetos.', 'Video', 'https://example.com/materials/clases_objetos.mp4', '2024-01-16', 'clases_objetos.mp4', 'mp4', TRUE),
-(3, 'Diagrama ER para diseño de bases de datos.', 'Imagen', 'https://example.com/materials/diagrama_er.png', '2024-02-06', 'diagrama_er.png', 'png', TRUE),
-(4, 'Archivo SQL con consultas SELECT de ejemplo.', 'Código', 'https://example.com/materials/consultas_select.sql', '2024-02-11', 'consultas_select.sql', 'sql', TRUE),
-(5, 'Tutorial básico de estructura HTML.', 'Documento', 'https://example.com/materials/html_tutorial.pdf', '2024-03-02', 'html_tutorial.pdf', 'pdf', TRUE),
-(6, 'Video sobre estilos CSS.', 'Video', 'https://example.com/materials/css_estilos.mp4', '2024-03-06', 'css_estilos.mp4', 'mp4', TRUE),
-(7, 'Guía rápida para configurar Spring.', 'Documento', 'https://example.com/materials/config_spring.pdf', '2024-04-11', 'config_spring.pdf', 'pdf', FALSE),
-(8, 'Ejemplo de archivo pom.xml para Maven.', 'Código', 'https://example.com/materials/pom.xml', '2024-04-16', 'pom.xml', 'xml', FALSE),
-(9, 'Presentación sobre fundamentos de seguridad.', 'Documento', 'https://example.com/materials/seguridad_fundamentos.pptx', '2024-05-02', 'seguridad_fundamentos.pptx', 'pptx', TRUE),
-(10, 'Código ejemplo de autenticación OAuth2.', 'Código', 'https://example.com/materials/oauth2_auth.java', '2024-05-11', 'oauth2_auth.java', 'java', TRUE);
+INSERT INTO material (descripcion, tipo_material, url, fecha_subida, nombre_archivo, tipo_archivo, publicado) VALUES
+('Guía completa de introducción a Java', 'Documento', 'https://example.com/java1.pdf', '2025-05-20', 'java1.pdf', 'PDF', true),
+('Presentación sobre POO en Java', 'Presentación', 'https://example.com/poo-java.pptx', '2025-05-21', 'poo-java.pptx', 'PPTX', true),
+('Ejercicios prácticos de estructuras', 'Documento', 'https://example.com/estructuras.pdf', '2025-05-22', 'estructuras.pdf', 'PDF', true),
+('Video tutorial de instalación de JDK', 'Video', 'https://example.com/jdk-video.mp4', '2025-05-23', 'jdk-video.mp4', 'MP4', false),
+('Resumen de temas fundamentales', 'Documento', 'https://example.com/resumen.docx', '2025-05-24', 'resumen.docx', 'DOCX', true),
+('Plantilla de proyecto Maven', 'Código fuente', 'https://example.com/maven.zip', '2025-05-25', 'maven.zip', 'ZIP', true),
+('Guía rápida de Git y GitHub', 'Documento', 'https://example.com/git-guide.pdf', '2025-05-26', 'git-guide.pdf', 'PDF', false),
+('Infografía sobre estructuras de datos', 'Imagen', 'https://example.com/infografia.png', '2025-05-27', 'infografia.png', 'PNG', true),
+('Video explicativo sobre listas enlazadas', 'Video', 'https://example.com/listas.mp4', '2025-05-28', 'listas.mp4', 'MP4', true),
+('Material de repaso final', 'Documento', 'https://example.com/repaso-final.pdf', '2025-05-29', 'repaso-final.pdf', 'PDF', true);
+
+INSERT INTO evaluacion (titulo, descripcion, fecha_creacion, fecha_aplicacion, estado) VALUES
+('Evaluación Inicial', 'Evaluación diagnóstica para conocer el nivel base del estudiante.', '2025-05-01 09:00:00', '2025-06-05 08:00:00', 'Programada'),
+('Parcial 1', 'Primera evaluación parcial del curso de programación.', '2025-05-02 10:30:00', '2025-06-10 09:00:00', 'Programada'),
+('Prueba de lógica', 'Evaluación centrada en ejercicios de lógica básica.', '2025-05-03 11:00:00', '2025-06-12 10:00:00', 'Activa'),
+('Control de lectura', 'Evaluación de comprensión lectora sobre temas técnicos.', '2025-05-04 12:00:00', '2025-06-15 11:00:00', 'Programada'),
+('Evaluación práctica', 'Ejercicio práctico de codificación bajo tiempo limitado.', '2025-05-05 13:00:00', '2025-06-18 14:00:00', 'Activa'),
+('Cuestionario de repaso', 'Preguntas variadas para repasar conceptos previos.', '2025-05-06 14:00:00', '2025-06-20 15:00:00', 'Programada'),
+('Simulacro final', 'Simulación de la evaluación final con condiciones reales.', '2025-05-07 15:00:00', '2025-06-25 16:00:00', 'Programada'),
+('Examen Final', 'Evaluación final que cubre todos los contenidos del curso.', '2025-05-08 16:00:00', '2025-06-30 08:00:00', 'Programada'),
+('Evaluación de refuerzo', 'Evaluación extra para estudiantes que necesiten mejorar.', '2025-05-09 17:00:00', '2025-07-03 09:00:00', 'Pendiente'),
+('Autoevaluación', 'Actividad de autoevaluación para medir el progreso propio.', '2025-05-10 18:00:00', '2025-07-05 10:00:00', 'Programada');
+
+INSERT INTO pregunta (enunciado, puntaje, id_ev) VALUES
+('¿Qué es una variable en programación?', 5, 1),
+('Explica el concepto de clase en Java.', 10, 1),
+('Selecciona la opción que representa una estructura de control.', 3, 2),
+('¿Cuál es la salida del siguiente fragmento de código?', 7, 2),
+('Describe el ciclo de vida de un objeto.', 8, 3),
+('¿Qué significa la sobrecarga de métodos?', 6, 3),
+('¿Para qué sirve la palabra clave "this"?', 4, 4),
+('¿Qué es una excepción en Java y cómo se maneja?', 9, 5),
+('Explica la diferencia entre Array y ArrayList.', 5, 6),
+('¿Qué es el polimorfismo y cómo se aplica?', 10, 7);
