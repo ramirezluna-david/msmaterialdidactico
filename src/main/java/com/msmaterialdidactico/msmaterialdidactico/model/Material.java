@@ -25,8 +25,8 @@ public class Material {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idMaterial;
 
-    @Column(nullable = false)
-    private int idClase;
+    /*@Column(nullable = false)
+    private int idClase;*/
 
     @Column(length = 1000, nullable = false)
     private String descripcion;

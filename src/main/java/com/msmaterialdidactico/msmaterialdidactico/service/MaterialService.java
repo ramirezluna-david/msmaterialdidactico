@@ -47,7 +47,7 @@ public class MaterialService {
         Material mat = materialRepository.findById(idMaterial);
         if(mat != null) {
             mat.setIdMaterial(idMaterial);
-            mat.setIdClase(material.getIdClase());
+            // mat.setIdClase(material.getIdClase());
             mat.setDescripcion(material.getDescripcion());
             mat.setTipoMaterial(material.getTipoMaterial());
             mat.setUrl(material.getUrl());
