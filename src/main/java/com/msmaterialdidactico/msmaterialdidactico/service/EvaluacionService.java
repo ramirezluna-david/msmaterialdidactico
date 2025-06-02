@@ -30,6 +30,10 @@ public class EvaluacionService {
         evaluacionRepository.deleteById(idEvaluacion);
     }
 
+    public Evaluacion evaluacionxId(int idEv) {
+        return evaluacionRepository.getReferenceById(idEv);
+    }
+
     public Boolean update(int idEv, Evaluacion evaluacion) {
         Evaluacion ev = evaluacionRepository.findById(idEv);
         if(ev != null) {

@@ -44,7 +44,7 @@ public class Evaluacion {
     @Column(length = 25, nullable = false)
     private String estado;
 
-    /*@OneToMany(mappedBy = "evaluacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "evaluacion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Pregunta> preguntas;*/
+    private List<Pregunta> preguntas;
 }
