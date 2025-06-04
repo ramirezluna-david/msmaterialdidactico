@@ -47,5 +47,8 @@ public class Material {
     private String tipoArchivo;
 
     @Column(nullable = false)
+    private Boolean activo;
+
+    @Column(nullable = false)
     private Boolean publicado;
 }

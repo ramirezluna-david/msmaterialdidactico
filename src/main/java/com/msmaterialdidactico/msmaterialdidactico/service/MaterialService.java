@@ -62,4 +62,15 @@ public class MaterialService {
             return false;
         }
     }
+
+    public Boolean activar(int idMaterial) {
+        Material buscarMaterial = materialRepository.findById(idMaterial);
+        if(buscarMaterial != null) {
+            buscarMaterial.setActivo(!buscarMaterial.getActivo());
+            materialRepository.save(buscarMaterial);
+            return true;
+        }
+
+        return false;
+    }
 }
